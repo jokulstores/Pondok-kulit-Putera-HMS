@@ -16,6 +16,7 @@
             font-family: 'Lato', sans-serif;
             color: var(--text-dark);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
@@ -30,7 +31,7 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            opacity: 0.4; /* Opacity disesuaikan agar teks terbaca */
+            opacity: 0.4;
         }
         .hero-collage img {
             width: 100%;
@@ -44,41 +45,80 @@
         .hero-gradient-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
             z-index: 1;
+        }
+
+        /* Hero Animation: Citation/PDF Highlight */
+        .pdf-preview {
+            perspective: 1000px;
+        }
+        .pdf-page {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .highlight-bar {
+            background: rgba(255, 140, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-bar::after {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: sweep 2s infinite;
+        }
+        @keyframes sweep {
+            100% { left: 100%; }
+        }
+
+        /* Business Section: Vertical Slider */
+        .business-point {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+        .business-point.active {
+            border-left: 4px solid var(--primary-orange);
+            background: rgba(255, 140, 0, 0.05);
+            padding-left: 2rem;
+        }
+        .visual-container {
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .bg-primary-orange { background-color: var(--primary-orange); }
         .text-primary-orange { color: var(--primary-orange); }
-        .border-primary-orange { border-color: var(--primary-orange); }
         .btn-radius { border-radius: 10px; }
         
         @keyframes float {
-            0% { transform: translateY(0px); }
+            0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 3s ease-in-out infinite; }
     </style>
 </head>
 <body class="bg-white">
 
-    <!-- Navigation -->
+    <!-- Navigasi -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
-                    <!-- Logo Placeholder based on LOGO HMS.jpg -->
-                    <div class="h-12 w-12 overflow-hidden rounded-lg border border-gray-100">
-                        <img src="LOGO HMS.jpg" alt="Logo HMS" class="h-full w-full object-contain" onerror="this.src='https://via.placeholder.com/100?text=HMS'">
+                    <div class="h-12 w-12 overflow-hidden rounded-lg">
+                        <img src="https://iili.io/fwMPMDG.md.jpg" alt="Logo HMS" class="h-full w-full object-contain">
                     </div>
-                    <span class="text-xl font-extrabold tracking-tight">PUTERA <span class="text-primary-orange">HMS</span></span>
+                    <span class="text-xl font-extrabold tracking-tight">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></span>
                 </div>
                 <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wide items-center">
                     <a href="#keunggulan" class="hover:text-primary-orange transition">Keunggulan</a>
                     <a href="#produk" class="hover:text-primary-orange transition">Produk</a>
                     <a href="#lokasi" class="hover:text-primary-orange transition">Workshop</a>
-                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" class="bg-primary-orange text-white px-5 py-2 btn-radius hover:bg-orange-600 transition shadow-md">
+                    <a href="https://wa.me/6285810360546" class="bg-primary-orange text-white px-5 py-2 btn-radius hover:bg-orange-600 transition shadow-md">
                         Buka Kemitraan
                     </a>
                 </div>
@@ -86,86 +126,200 @@
         </div>
     </nav>
 
-    <!-- Section 1: Hero Section with Collage -->
-    <section class="hero-section relative h-screen flex items-center overflow-hidden pt-20">
-        <!-- Collage Background -->
+    <!-- Bagian 1: Hero Section dengan Animasi Sitasi -->
+    <section class="hero-section relative min-h-screen flex items-center overflow-hidden pt-20">
         <div class="hero-collage">
-            <img src="kerupuk sapi 1.jfif" alt="Kerupuk Sapi 1">
-            <img src="kerupuk sapi 2.jfif" alt="Kerupuk Sapi 2">
-            <img src="kerupuk sapi 3.jfif" alt="Kerupuk Sapi 3">
-            <img src="kerupuk sapi 4.jfif" alt="Kerupuk Sapi 4">
-            <img src="kerupuk sapi 5.jfif" alt="Kerupuk Sapi 5">
-            <img src="kerupuk sapi 6.jpg" alt="Kerupuk Sapi 6">
-            <img src="kerupuk sapi.jfif" alt="Kerupuk Sapi 7">
-            <img src="kerupuk sapi 2.jfif" alt="Kerupuk Sapi 8" class="scale-x-[-1]">
+            <img src="https://iili.io/fwMLRob.jpg" alt="1"><img src="https://iili.io/fwML7ix.jpg" alt="2">
+            <img src="https://iili.io/fwMLuDu.jpg" alt="3"><img src="https://iili.io/fwMLTNe.jpg" alt="4">
+            <img src="https://iili.io/fwML5Vj.jpg" alt="5"><img src="https://iili.io/fwMLaKQ.jpg" alt="6">
+            <img src="https://iili.io/fwMLclV.jpg" alt="7"><img src="https://iili.io/fwMLRob.jpg" alt="8">
         </div>
         <div class="hero-gradient-overlay"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-            <div class="max-w-3xl">
-                <span class="inline-block bg-primary-orange/20 border border-primary-orange text-primary-orange px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                    Premium Quality Cow Skin Crackers
-                </span>
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
-                    Partner Suplai Terpercaya Kerupuk Kulit Sapi <span class="text-primary-orange">Original & Premium</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light">
-                    Kualitas tradisi dengan kapasitas produksi skala besar untuk distributor, reseller, dan bisnis kuliner.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" 
-                       class="bg-primary-orange text-white px-10 py-5 btn-radius font-bold text-lg hover:bg-orange-600 transition shadow-2xl shadow-orange-500/40 flex items-center justify-center">
-                        <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
-                        Konsultasi Kemitraan via WhatsApp
-                    </a>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-primary-orange/20 border border-primary-orange text-primary-orange px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                        Verified Premium Supplier
+                    </span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                        Partner Suplai Terpercaya Kerupuk Kulit <span class="text-primary-orange">Original</span>
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-10 leading-relaxed font-light">
+                        Suplai stabil, kualitas premium, dan harga pabrik langsung untuk pertumbuhan bisnis Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://wa.me/6285810360546" 
+                           class="bg-primary-orange text-white px-10 py-5 btn-radius font-bold text-lg hover:bg-orange-600 transition shadow-2xl shadow-orange-500/40 flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
+                            Mulai Kerjasama
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Animasi Sitasi & PDF -->
+                <div class="relative hidden lg:block">
+                    <div id="hero-animation-trigger" class="pdf-preview bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl">
+                        <div class="pdf-page bg-white rounded-lg p-8 text-gray-800 shadow-inner overflow-hidden relative">
+                            <!-- Header Dokumen -->
+                            <div class="flex justify-between items-start mb-8 border-b pb-4">
+                                <div class="w-24 h-4 bg-gray-200 rounded"></div>
+                                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="text-primary-orange w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <!-- Konten Dokumen Mock -->
+                            <div class="space-y-4">
+                                <div class="w-full h-3 bg-gray-100 rounded"></div>
+                                <div class="w-5/6 h-3 bg-gray-100 rounded"></div>
+                                <!-- Segmen yang Disorot -->
+                                <div class="highlight-bar p-3 rounded-md border-l-4 border-primary-orange">
+                                    <div class="w-full h-3 bg-primary-orange/40 rounded mb-2"></div>
+                                    <p class="text-[10px] font-bold text-primary-orange uppercase">Verification: 100% Genuine Cow Skin</p>
+                                </div>
+                                <div class="w-4/6 h-3 bg-gray-100 rounded"></div>
+                                <div class="w-full h-3 bg-gray-100 rounded"></div>
+                            </div>
+                            <!-- Animasi Stempel Verifikasi -->
+                            <div class="absolute bottom-10 right-10 transform rotate-12 animate-pulse">
+                                <div class="border-4 border-green-500 text-green-500 font-black px-4 py-2 rounded-xl uppercase text-xl">VERIFIED</div>
+                            </div>
+                        </div>
+                        <!-- Tooltip Data Melayang -->
+                        <div class="absolute -top-4 -right-4 bg-primary-orange p-4 rounded-2xl shadow-xl animate-float">
+                            <i data-lucide="trending-up" class="text-white w-6 h-6"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Value Propositions -->
-    <section id="keunggulan" class="py-24 bg-white relative">
+    <!-- Bagian 2: Built for Business (Vertical Slider) -->
+    <section id="keunggulan" class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
-                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
-                        <i data-lucide="award" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Built for Business, <span class="text-primary-orange">Not Just Chat.</span></h2>
+                <p class="text-gray-500">Kami memahami kebutuhan operasional distributor skala besar.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Kiri: Poin Interaktif -->
+                <div class="space-y-4">
+                    <div onclick="switchBusinessSlide(0)" class="business-point active p-8 rounded-2xl" id="point-0">
+                        <div class="flex items-start space-x-6">
+                            <div class="bg-orange-100 p-3 rounded-xl text-primary-orange">
+                                <i data-lucide="package-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Kualitas Konsisten</h3>
+                                <p class="text-gray-600">Setiap batch produksi melewati kontrol kualitas ketat untuk menjaga standar rasa.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">100% Kulit Sapi</h3>
-                    <p class="text-gray-600">Terjamin Halal, tanpa bahan kimia tambahan, cita rasa gurih alami yang autentik.</p>
+
+                    <div onclick="switchBusinessSlide(1)" class="business-point p-8 rounded-2xl" id="point-1">
+                        <div class="flex items-start space-x-6">
+                            <div class="bg-blue-100 p-3 rounded-xl text-blue-600">
+                                <i data-lucide="truck" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Logistik Terjadwal</h3>
+                                <p class="text-gray-600">Sistem pengiriman tepat waktu untuk memastikan stok gudang Anda tidak pernah kosong.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div onclick="switchBusinessSlide(2)" class="business-point p-8 rounded-2xl" id="point-2">
+                        <div class="flex items-start space-x-6">
+                            <div class="bg-green-100 p-3 rounded-xl text-green-600">
+                                <i data-lucide="coins" class="text-green-600 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Profitibilitas Tinggi</h3>
+                                <p class="text-gray-600">Harga kompetitif dengan skema tiering yang menguntungkan agen dan distributor.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
-                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
-                        <i data-lucide="factory" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+
+                <!-- Kanan: Tampilan Animasi -->
+                <div class="relative h-[450px] bg-gray-50 rounded-[40px] border-8 border-white shadow-xl overflow-hidden">
+                    <!-- Visual Slide 0 -->
+                    <div id="visual-0" class="visual-container absolute inset-0 flex items-center justify-center p-12">
+                        <div class="text-center">
+                            <div class="relative inline-block mb-8">
+                                <img src="https://iili.io/fwMLaKQ.jpg" class="w-64 h-64 object-cover rounded-3xl shadow-lg border-4 border-white">
+                                <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg">
+                                    <i data-lucide="shield-check" class="text-green-500 w-10 h-10"></i>
+                                </div>
+                            </div>
+                            <div class="flex justify-center space-x-2">
+                                <div class="h-2 w-12 bg-green-500 rounded-full"></div>
+                                <div class="h-2 w-12 bg-green-500 rounded-full"></div>
+                                <div class="h-2 w-12 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Produksi Masif</h3>
-                    <p class="text-gray-600">Menjamin stabilitas stok harian untuk kebutuhan distribusi skala besar tanpa hambatan.</p>
-                </div>
-                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
-                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
-                        <i data-lucide="banknote" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+
+                    <!-- Visual Slide 1 -->
+                    <div id="visual-1" class="visual-container absolute inset-0 opacity-0 translate-y-10 flex items-center justify-center p-12">
+                        <div class="w-full space-y-8">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border flex items-center space-x-4">
+                                <div class="bg-blue-500 p-3 rounded-lg text-white animate-bounce">
+                                    <i data-lucide="truck"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="h-2 w-1/2 bg-gray-100 rounded mb-2"></div>
+                                    <div class="h-2 w-full bg-gray-50 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="relative h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full w-2/3 bg-blue-500 rounded-full transition-all duration-1000"></div>
+                            </div>
+                            <p class="text-center font-bold text-blue-600">Shipping Progress: 67%</p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Harga Tangan Pertama</h3>
-                    <p class="text-gray-600">Dapatkan harga pabrik langsung untuk margin keuntungan maksimal bagi para mitra.</p>
+
+                    <!-- Visual Slide 2 -->
+                    <div id="visual-2" class="visual-container absolute inset-0 opacity-0 translate-y-10 flex items-center justify-center p-12">
+                        <div class="grid grid-cols-2 gap-4 w-full">
+                            <div class="bg-white p-6 rounded-3xl shadow-sm text-center border">
+                                <p class="text-gray-400 text-xs mb-2 uppercase">Your Margin</p>
+                                <p class="text-3xl font-black text-green-600">+35%</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-3xl shadow-sm text-center border">
+                                <p class="text-gray-400 text-xs mb-2 uppercase">Growth</p>
+                                <p class="text-3xl font-black text-primary-orange">2.4x</p>
+                            </div>
+                            <div class="col-span-2 bg-gray-900 p-6 rounded-3xl shadow-xl flex items-center justify-between">
+                                <div class="text-white">
+                                    <p class="text-xs opacity-50">Revenue Target</p>
+                                    <p class="text-xl font-bold">Achieved</p>
+                                </div>
+                                <i data-lucide="award" class="text-yellow-400 w-10 h-10"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Product Showcase -->
+    <!-- Bagian 3: Product Showcase -->
     <section id="produk" class="py-24 bg-gray-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2 relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-orange/20 rounded-full blur-3xl"></div>
-                    <img src="kerupuk sapi 6.jpg" 
-                         alt="Detail Kerupuk Kulit" 
+                    <!-- PEMBARUAN GAMBAR: Menggunakan URL gambar yang diminta -->
+                    <img src="https://iili.io/fwMLRob.jpg" 
+                         alt="Kerupuk Kulit Sapi Putera HMS" 
                          class="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover border-4 border-white">
                 </div>
                 <div class="lg:w-1/2">
                     <h2 class="text-4xl font-bold mb-8">Detail Tekstur & Kebersihan Terjaga</h2>
                     <p class="text-xl text-gray-700 leading-relaxed mb-8">
-                        "Diolah secara tradisional namun higienis, menghasilkan kerupuk kulit yang renyah sempurna tanpa rasa berminyak berlebih."
+                        Diproduksi dengan standar kebersihan tinggi untuk memastikan produk aman dan nikmat dikonsumsi oleh semua kalangan pelanggan Anda.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                         <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
@@ -174,37 +328,29 @@
                         </div>
                         <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
                             <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
-                            <span class="font-bold text-sm">Aroma Autentik</span>
-                        </div>
-                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
-                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
-                            <span class="font-bold text-sm">Tanpa Pengawet</span>
-                        </div>
-                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
-                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
-                            <span class="font-bold text-sm">Higienis PIRT</span>
+                            <span class="font-bold text-sm">Higienis Terjamin</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20mengenai%20produk%20Anda" 
+                    <a href="https://wa.me/6285810360546" 
                        class="inline-block bg-primary-orange text-white px-8 py-4 btn-radius font-bold hover:bg-orange-600 transition shadow-lg">
-                        Tanya Detail Produk
+                        Lihat Katalog Lengkap
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Google Maps & Location Update -->
+    <!-- Bagian 4: Workshop Location -->
     <section id="lokasi" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div class="max-w-2xl">
-                    <h2 class="text-4xl font-bold mb-4">Kunjungi Workshop Kami</h2>
-                    <p class="text-gray-600 text-lg">Silakan datang langsung ke lokasi produksi kami untuk melihat kualitas produk secara mendalam.</p>
+                    <h2 class="text-4xl font-bold mb-4">Lokasi Workshop</h2>
+                    <p class="text-gray-600 text-lg">Kunjungi lokasi kami di TDP3 (Dramaga Permai Park) 3, Kabupaten Bogor.</p>
                 </div>
                 <a href="https://maps.app.goo.gl/3Lpswm1pzTbMC1eJ8" target="_blank" 
                    class="bg-white border-2 border-primary-orange text-primary-orange px-8 py-3 btn-radius font-bold flex items-center hover:bg-primary-orange hover:text-white transition">
-                    <i data-lucide="map" class="w-5 h-5 mr-2"></i> Buka di Google Maps
+                    <i data-lucide="map" class="w-5 h-5 mr-2"></i> Petunjuk Arah
                 </a>
             </div>
 
@@ -212,40 +358,24 @@
                 <div class="lg:col-span-1 space-y-6">
                     <div class="bg-orange-50 p-8 rounded-2xl border border-orange-100">
                         <h4 class="text-xl font-bold mb-4 flex items-center">
-                            <i data-lucide="map-pin" class="w-6 h-6 mr-3 text-primary-orange"></i> Alamat
+                            <i data-lucide="map-pin" class="w-6 h-6 mr-3 text-primary-orange"></i> Alamat Lengkap
                         </h4>
                         <p class="text-gray-700 leading-relaxed font-semibold">
                             Jl. Mahoni No.6,<br>
                             Cihideung Ilir, Kec. Ciampea,<br>
                             Kabupaten Bogor, Jawa Barat 16620
                         </p>
-                        <p class="mt-4 text-primary-orange font-bold text-sm bg-white inline-block px-3 py-1 rounded-md border border-orange-200">
-                            Terletak di: TDP3 (Dramaga Permai Park) 3
-                        </p>
                     </div>
                     <div class="bg-gray-900 text-white p-8 rounded-2xl">
                         <h4 class="text-xl font-bold mb-4 flex items-center">
-                            <i data-lucide="clock" class="w-6 h-6 mr-3 text-primary-orange"></i> Jam Operasional
+                            <i data-lucide="clock" class="w-6 h-6 mr-3 text-primary-orange"></i> Operasional
                         </h4>
-                        <div class="space-y-2 text-gray-300">
-                            <div class="flex justify-between border-b border-gray-700 pb-2">
-                                <span>Senin - Sabtu</span>
-                                <span class="text-white">08:00 - 17:00</span>
-                            </div>
-                            <div class="flex justify-between pt-2">
-                                <span>Minggu</span>
-                                <span class="text-primary-orange">Tutup</span>
-                            </div>
-                        </div>
+                        <p class="text-gray-300">Senin - Sabtu: 08:00 - 17:00</p>
                     </div>
                 </div>
 
                 <div class="lg:col-span-2 h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                    <!-- Google Maps Embed yang Mengarah ke Lokasi Baru -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.535891398555!2d106.7196013!3d-6.5801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5003666d98d%3A0x6b24d788e0018512!2sDramaga%20Permai%203!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.535891398555!2d106.7196013!3d-6.5801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5003666d98d%3A0x6b24d788e0018512!2sDramaga%20Permai%203!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -253,41 +383,61 @@
 
     <!-- Footer -->
     <footer class="bg-gray-50 py-16 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-4 mb-8 md:mb-0">
-                    <img src="LOGO HMS.jpg" alt="Logo HMS" class="h-14 w-14 object-contain rounded-lg shadow-sm" onerror="this.src='https://via.placeholder.com/100'">
-                    <div>
-                        <span class="text-2xl font-extrabold tracking-tight block">PUTERA <span class="text-primary-orange">HMS</span></span>
-                        <span class="text-xs text-gray-500 font-bold uppercase tracking-widest">Premium Cow Skin Supplier</span>
-                    </div>
-                </div>
-                <div class="text-center md:text-right">
-                    <p class="text-gray-500 text-sm mb-4">© 2024 Pondok Kulit Putera HMS. Semua Hak Dilindungi.</p>
-                    <div class="flex space-x-6 justify-center md:justify-end text-gray-400">
-                        <a href="#" class="hover:text-primary-orange transition"><i data-lucide="instagram"></i></a>
-                        <a href="#" class="hover:text-primary-orange transition"><i data-lucide="facebook"></i></a>
-                        <a href="https://wa.me/6285810360546" class="hover:text-primary-orange transition"><i data-lucide="phone"></i></a>
-                    </div>
-                </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img src="https://iili.io/fwMPMDG.md.jpg" alt="Logo" class="h-16 w-16 mx-auto mb-6">
+            <h3 class="text-2xl font-extrabold mb-2">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></h3>
+            <p class="text-gray-400 text-sm mb-8">© 2024 Pondok Kulit Putera HMS. Partner Bisnis Kuliner Anda.</p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <a href="#" class="hover:text-primary-orange"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-primary-orange"><i data-lucide="facebook"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- WhatsApp Melayang -->
     <div class="fixed bottom-8 right-8 z-[60]">
-        <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" 
-           target="_blank" 
-           class="flex items-center group bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 transition-all animate-float">
-            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 group-hover:mr-4 transition-all duration-500 font-bold whitespace-nowrap">
-                Hubungi Admin HMS
-            </span>
+        <a href="https://wa.me/6285810360546" target="_blank" class="flex items-center group bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 transition-all animate-float">
+            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 group-hover:mr-4 transition-all duration-500 font-bold whitespace-nowrap">Hubungi HMS</span>
             <i data-lucide="message-circle" class="w-8 h-8"></i>
         </a>
     </div>
 
     <script>
         lucide.createIcons();
+
+        // Business Slide Switcher
+        function switchBusinessSlide(index) {
+            // Update points styling
+            document.querySelectorAll('.business-point').forEach((el, i) => {
+                if(i === index) el.classList.add('active');
+                else el.classList.remove('active');
+            });
+
+            // Update visual display
+            document.querySelectorAll('.visual-container').forEach((el, i) => {
+                if(i === index) {
+                    el.classList.remove('opacity-0', 'translate-y-10');
+                    el.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    el.classList.add('opacity-0', 'translate-y-10');
+                    el.classList.remove('opacity-100', 'translate-y-0');
+                }
+            });
+        }
+
+        // Hero Animation Logic (PDF Reveal)
+        window.addEventListener('scroll', () => {
+            const el = document.querySelector('.pdf-page');
+            const trigger = document.getElementById('hero-animation-trigger');
+            if (!trigger) return;
+            const rect = trigger.getBoundingClientRect();
+            
+            // If near viewport, slightly tilt it
+            if(rect.top < window.innerHeight && rect.bottom > 0) {
+                const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
+                el.style.transform = `rotateY(${10 - (scrollPercent * 10)}deg) rotateX(${scrollPercent * 5}deg)`;
+            }
+        });
     </script>
 </body>
 </html>
