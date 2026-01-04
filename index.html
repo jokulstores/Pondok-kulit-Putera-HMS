@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pondok Kulit Putera HMS | Partner Suplai Kerupuk Kulit Sapi Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF8C00;
+            --text-dark: #2D2D2D;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Hero Collage Background */
+        .hero-collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 4px;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.4; /* Opacity disesuaikan agar teks terbaca */
+        }
+        .hero-collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-section {
+            background-color: #000;
+            position: relative;
+        }
+        .hero-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+
+        .bg-primary-orange { background-color: var(--primary-orange); }
+        .text-primary-orange { color: var(--primary-orange); }
+        .border-primary-orange { border-color: var(--primary-orange); }
+        .btn-radius { border-radius: 10px; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <!-- Logo Placeholder based on LOGO HMS.jpg -->
+                    <div class="h-12 w-12 overflow-hidden rounded-lg border border-gray-100">
+                        <img src="LOGO HMS.jpg" alt="Logo HMS" class="h-full w-full object-contain" onerror="this.src='https://via.placeholder.com/100?text=HMS'">
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight">PUTERA <span class="text-primary-orange">HMS</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wide items-center">
+                    <a href="#keunggulan" class="hover:text-primary-orange transition">Keunggulan</a>
+                    <a href="#produk" class="hover:text-primary-orange transition">Produk</a>
+                    <a href="#lokasi" class="hover:text-primary-orange transition">Workshop</a>
+                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" class="bg-primary-orange text-white px-5 py-2 btn-radius hover:bg-orange-600 transition shadow-md">
+                        Buka Kemitraan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero Section with Collage -->
+    <section class="hero-section relative h-screen flex items-center overflow-hidden pt-20">
+        <!-- Collage Background -->
+        <div class="hero-collage">
+            <img src="kerupuk sapi 1.jfif" alt="Kerupuk Sapi 1">
+            <img src="kerupuk sapi 2.jfif" alt="Kerupuk Sapi 2">
+            <img src="kerupuk sapi 3.jfif" alt="Kerupuk Sapi 3">
+            <img src="kerupuk sapi 4.jfif" alt="Kerupuk Sapi 4">
+            <img src="kerupuk sapi 5.jfif" alt="Kerupuk Sapi 5">
+            <img src="kerupuk sapi 6.jpg" alt="Kerupuk Sapi 6">
+            <img src="kerupuk sapi.jfif" alt="Kerupuk Sapi 7">
+            <img src="kerupuk sapi 2.jfif" alt="Kerupuk Sapi 8" class="scale-x-[-1]">
+        </div>
+        <div class="hero-gradient-overlay"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-primary-orange/20 border border-primary-orange text-primary-orange px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                    Premium Quality Cow Skin Crackers
+                </span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                    Partner Suplai Terpercaya Kerupuk Kulit Sapi <span class="text-primary-orange">Original & Premium</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light">
+                    Kualitas tradisi dengan kapasitas produksi skala besar untuk distributor, reseller, dan bisnis kuliner.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" 
+                       class="bg-primary-orange text-white px-10 py-5 btn-radius font-bold text-lg hover:bg-orange-600 transition shadow-2xl shadow-orange-500/40 flex items-center justify-center">
+                        <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
+                        Konsultasi Kemitraan via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Value Propositions -->
+    <section id="keunggulan" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 text-center">
+                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
+                        <i data-lucide="award" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">100% Kulit Sapi</h3>
+                    <p class="text-gray-600">Terjamin Halal, tanpa bahan kimia tambahan, cita rasa gurih alami yang autentik.</p>
+                </div>
+                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
+                        <i data-lucide="factory" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Produksi Masif</h3>
+                    <p class="text-gray-600">Menjamin stabilitas stok harian untuk kebutuhan distribusi skala besar tanpa hambatan.</p>
+                </div>
+                <div class="group p-8 rounded-2xl hover:bg-orange-50 transition-all">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-orange transition-colors">
+                        <i data-lucide="banknote" class="w-8 h-8 text-primary-orange group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Harga Tangan Pertama</h3>
+                    <p class="text-gray-600">Dapatkan harga pabrik langsung untuk margin keuntungan maksimal bagi para mitra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Product Showcase -->
+    <section id="produk" class="py-24 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-orange/20 rounded-full blur-3xl"></div>
+                    <img src="kerupuk sapi 6.jpg" 
+                         alt="Detail Kerupuk Kulit" 
+                         class="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover border-4 border-white">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold mb-8">Detail Tekstur & Kebersihan Terjaga</h2>
+                    <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                        "Diolah secara tradisional namun higienis, menghasilkan kerupuk kulit yang renyah sempurna tanpa rasa berminyak berlebih."
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
+                            <span class="font-bold text-sm">Mekar Sempurna</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
+                            <span class="font-bold text-sm">Aroma Autentik</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
+                            <span class="font-bold text-sm">Tanpa Pengawet</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="check-circle" class="text-primary-orange w-5 h-5"></i>
+                            <span class="font-bold text-sm">Higienis PIRT</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20mengenai%20produk%20Anda" 
+                       class="inline-block bg-primary-orange text-white px-8 py-4 btn-radius font-bold hover:bg-orange-600 transition shadow-lg">
+                        Tanya Detail Produk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Google Maps & Location Update -->
+    <section id="lokasi" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-bold mb-4">Kunjungi Workshop Kami</h2>
+                    <p class="text-gray-600 text-lg">Silakan datang langsung ke lokasi produksi kami untuk melihat kualitas produk secara mendalam.</p>
+                </div>
+                <a href="https://maps.app.goo.gl/3Lpswm1pzTbMC1eJ8" target="_blank" 
+                   class="bg-white border-2 border-primary-orange text-primary-orange px-8 py-3 btn-radius font-bold flex items-center hover:bg-primary-orange hover:text-white transition">
+                    <i data-lucide="map" class="w-5 h-5 mr-2"></i> Buka di Google Maps
+                </a>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-orange-50 p-8 rounded-2xl border border-orange-100">
+                        <h4 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="map-pin" class="w-6 h-6 mr-3 text-primary-orange"></i> Alamat
+                        </h4>
+                        <p class="text-gray-700 leading-relaxed font-semibold">
+                            Jl. Mahoni No.6,<br>
+                            Cihideung Ilir, Kec. Ciampea,<br>
+                            Kabupaten Bogor, Jawa Barat 16620
+                        </p>
+                        <p class="mt-4 text-primary-orange font-bold text-sm bg-white inline-block px-3 py-1 rounded-md border border-orange-200">
+                            Terletak di: TDP3 (Dramaga Permai Park) 3
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 text-white p-8 rounded-2xl">
+                        <h4 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="clock" class="w-6 h-6 mr-3 text-primary-orange"></i> Jam Operasional
+                        </h4>
+                        <div class="space-y-2 text-gray-300">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span>Senin - Sabtu</span>
+                                <span class="text-white">08:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <span>Minggu</span>
+                                <span class="text-primary-orange">Tutup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                    <!-- Google Maps Embed yang Mengarah ke Lokasi Baru -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.535891398555!2d106.7196013!3d-6.5801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5003666d98d%3A0x6b24d788e0018512!2sDramaga%20Permai%203!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-16 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-4 mb-8 md:mb-0">
+                    <img src="LOGO HMS.jpg" alt="Logo HMS" class="h-14 w-14 object-contain rounded-lg shadow-sm" onerror="this.src='https://via.placeholder.com/100'">
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight block">PUTERA <span class="text-primary-orange">HMS</span></span>
+                        <span class="text-xs text-gray-500 font-bold uppercase tracking-widest">Premium Cow Skin Supplier</span>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-500 text-sm mb-4">© 2024 Pondok Kulit Putera HMS. Semua Hak Dilindungi.</p>
+                    <div class="flex space-x-6 justify-center md:justify-end text-gray-400">
+                        <a href="#" class="hover:text-primary-orange transition"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="hover:text-primary-orange transition"><i data-lucide="facebook"></i></a>
+                        <a href="https://wa.me/6285810360546" class="hover:text-primary-orange transition"><i data-lucide="phone"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-8 right-8 z-[60]">
+        <a href="https://wa.me/6285810360546?text=Halo%20Pondok%20Kulit%20Putera%20HMS%2C%20saya%20tertarik%20untuk%20menjadi%20mitra%20distributor" 
+           target="_blank" 
+           class="flex items-center group bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 transition-all animate-float">
+            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 group-hover:mr-4 transition-all duration-500 font-bold whitespace-nowrap">
+                Hubungi Admin HMS
+            </span>
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
