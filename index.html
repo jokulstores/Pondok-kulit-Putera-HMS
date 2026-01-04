@@ -58,9 +58,10 @@
             transform-style: preserve-3d;
         }
         .highlight-bar {
-            background: rgba(255, 140, 0, 0.3);
+            background: rgba(255, 140, 0, 0.1);
             position: relative;
             overflow: hidden;
+            border-left: 4px solid var(--primary-orange);
         }
         .highlight-bar::after {
             content: '';
@@ -69,8 +70,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: sweep 2s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,140,0,0.2), transparent);
+            animation: sweep 3s infinite;
         }
         @keyframes sweep {
             100% { left: 100%; }
@@ -100,6 +101,24 @@
             50% { transform: translateY(-10px); }
         }
         .animate-float { animation: float 3s ease-in-out infinite; }
+
+        /* Scanning Line for High-Tech feel */
+        .scanning-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-orange);
+            box-shadow: 0 0 15px var(--primary-orange);
+            top: 0;
+            left: 0;
+            animation: scan 4s linear infinite;
+            z-index: 20;
+            opacity: 0.5;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -110,9 +129,10 @@
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
                     <div class="h-12 w-12 overflow-hidden rounded-lg">
-                        <img src="https://iili.io/fwMPMDG.md.jpg" alt="Logo HMS" class="h-full w-full object-contain">
+                        <!-- PEMBARUAN LOGO UTAMA -->
+                        <img src="https://iili.io/fwWRFEX.png" alt="Logo HMS" class="h-full w-full object-contain">
                     </div>
-                    <span class="text-xl font-extrabold tracking-tight">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></span>
+                    <span class="text-xl font-extrabold tracking-tight uppercase">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></span>
                 </div>
                 <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-wide items-center">
                     <a href="#keunggulan" class="hover:text-primary-orange transition">Keunggulan</a>
@@ -126,7 +146,7 @@
         </div>
     </nav>
 
-    <!-- Bagian 1: Hero Section dengan Animasi Sitasi -->
+    <!-- Bagian 1: Hero Section dengan Animasi Sitasi High-Tech -->
     <section class="hero-section relative min-h-screen flex items-center overflow-hidden pt-20">
         <div class="hero-collage">
             <img src="https://iili.io/fwMLRob.jpg" alt="1"><img src="https://iili.io/fwML7ix.jpg" alt="2">
@@ -157,37 +177,60 @@
                     </div>
                 </div>
 
-                <!-- Animasi Sitasi & PDF -->
+                <!-- Animasi Sitasi & PDF High-Tech -->
                 <div class="relative hidden lg:block">
-                    <div id="hero-animation-trigger" class="pdf-preview bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl">
+                    <div id="hero-animation-trigger" class="pdf-preview bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl relative">
+                        <!-- Scanning Line effect -->
                         <div class="pdf-page bg-white rounded-lg p-8 text-gray-800 shadow-inner overflow-hidden relative">
+                            <div class="scanning-line"></div>
+                            
                             <!-- Header Dokumen -->
                             <div class="flex justify-between items-start mb-8 border-b pb-4">
-                                <div class="w-24 h-4 bg-gray-200 rounded"></div>
-                                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                                    <i data-lucide="shield-check" class="text-primary-orange w-6 h-6"></i>
+                                <div>
+                                    <div class="w-32 h-4 bg-gray-200 rounded mb-2"></div>
+                                    <div class="w-20 h-2 bg-gray-100 rounded"></div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <img src="https://iili.io/fwWqeSI.jpg" alt="Halal Logo" class="h-10 w-auto object-contain">
+                                    <img src="https://iili.io/fwWqOcN.png" alt="Original Logo" class="h-10 w-auto object-contain">
                                 </div>
                             </div>
+
                             <!-- Konten Dokumen Mock -->
                             <div class="space-y-4">
                                 <div class="w-full h-3 bg-gray-100 rounded"></div>
                                 <div class="w-5/6 h-3 bg-gray-100 rounded"></div>
-                                <!-- Segmen yang Disorot -->
-                                <div class="highlight-bar p-3 rounded-md border-l-4 border-primary-orange">
-                                    <div class="w-full h-3 bg-primary-orange/40 rounded mb-2"></div>
-                                    <p class="text-[10px] font-bold text-primary-orange uppercase">Verification: 100% Genuine Cow Skin</p>
+                                
+                                <!-- Segmen yang Disorot (Transition Highlight) -->
+                                <div class="highlight-bar p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <i data-lucide="shield-check" class="text-primary-orange w-4 h-4"></i>
+                                        <p class="text-[10px] font-bold text-primary-orange uppercase tracking-widest">Quality Assurance Report</p>
+                                    </div>
+                                    <div class="w-full h-2 bg-primary-orange/20 rounded mb-2"></div>
+                                    <div class="w-3/4 h-2 bg-primary-orange/20 rounded"></div>
                                 </div>
+
                                 <div class="w-4/6 h-3 bg-gray-100 rounded"></div>
                                 <div class="w-full h-3 bg-gray-100 rounded"></div>
+                                <div class="w-2/3 h-3 bg-gray-100 rounded"></div>
                             </div>
-                            <!-- Animasi Stempel Verifikasi -->
-                            <div class="absolute bottom-10 right-10 transform rotate-12 animate-pulse">
-                                <div class="border-4 border-green-500 text-green-500 font-black px-4 py-2 rounded-xl uppercase text-xl">VERIFIED</div>
+
+                            <!-- Animasi Stempel Digital -->
+                            <div class="absolute bottom-6 left-8">
+                                <p class="text-[8px] text-gray-400 font-mono">HASH: 7F28A...B901</p>
+                            </div>
+                            <div class="absolute bottom-10 right-10 transform rotate-12">
+                                <div class="border-4 border-green-500/80 text-green-500/80 font-black px-4 py-2 rounded-xl uppercase text-xl shadow-lg bg-white/50 backdrop-blur-sm">VERIFIED</div>
                             </div>
                         </div>
+
                         <!-- Tooltip Data Melayang -->
-                        <div class="absolute -top-4 -right-4 bg-primary-orange p-4 rounded-2xl shadow-xl animate-float">
-                            <i data-lucide="trending-up" class="text-white w-6 h-6"></i>
+                        <div class="absolute -top-4 -right-4 bg-primary-orange p-4 rounded-2xl shadow-xl animate-float z-30">
+                            <div class="text-white flex flex-col items-center">
+                                <i data-lucide="activity" class="w-6 h-6 mb-1"></i>
+                                <span class="text-[10px] font-bold">LIVE QC</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,7 +354,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2 relative">
-                    <!-- PEMBARUAN GAMBAR: Menggunakan URL gambar yang diminta -->
                     <img src="https://iili.io/fwMLRob.jpg" 
                          alt="Kerupuk Kulit Sapi Putera HMS" 
                          class="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover border-4 border-white">
@@ -384,8 +426,9 @@
     <!-- Footer -->
     <footer class="bg-gray-50 py-16 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="https://iili.io/fwMPMDG.md.jpg" alt="Logo" class="h-16 w-16 mx-auto mb-6">
-            <h3 class="text-2xl font-extrabold mb-2">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></h3>
+            <!-- PEMBARUAN LOGO FOOTER -->
+            <img src="https://iili.io/fwWRFEX.png" alt="Logo" class="h-16 w-16 mx-auto mb-6 object-contain">
+            <h3 class="text-2xl font-extrabold mb-2 uppercase">PONDOK KULIT <span class="text-primary-orange">PUTERA HMS</span></h3>
             <p class="text-gray-400 text-sm mb-8">© 2024 Pondok Kulit Putera HMS. Partner Bisnis Kuliner Anda.</p>
             <div class="flex justify-center space-x-6 text-gray-400">
                 <a href="#" class="hover:text-primary-orange"><i data-lucide="instagram"></i></a>
